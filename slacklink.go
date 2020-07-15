@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/slack-go/slack"
@@ -15,7 +16,7 @@ import (
 var msg = ""
 
 var (
-	apitoken     = "xoxb-1229160658144-1204392688277-6vUrfmz7B6HW6XRKxBXioK9b"
+	apitoken     = os.Getenv("APITOKEN")
 	slackChannel = "general"
 )
 
