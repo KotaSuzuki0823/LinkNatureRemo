@@ -16,11 +16,11 @@ import (
 var msg = ""
 
 var (
-	apitoken     = os.Getenv("APITOKEN")
+	apitoken     = os.Getenv("SLACKAPI_TOKEN")
 	slackChannel = "general"
 )
 
-func sendMessage(msg, apitoken, slackChannel string) error {
+func SendMessage(msg, apitoken, slackChannel string) error {
 	api := slack.New(apitoken)
 
 	_, _, err := api.PostMessage(slackChannel, slack.MsgOptionText(msg, false))
@@ -28,7 +28,7 @@ func sendMessage(msg, apitoken, slackChannel string) error {
 	return err
 }
 
-func reciveMessage(apitoken, slackChannel string) string {
+func ReciveMessage(apitoken, slackChannel string) string {
 	http.HandleFunc("/slack/events", func(w http.ResponseWriter, r *http.Request) {
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
@@ -85,7 +85,7 @@ func testsend() {
 	fmt.Println("test")
 	message := "Hello from golang"
 
-	if err := sendMessage(message, apitoken, slackChannel); err != nil {
+	if err := SendMessage(message, apitoken, slackChannel); err != nil {
 		log.Fatal(err)
 	}
 }
