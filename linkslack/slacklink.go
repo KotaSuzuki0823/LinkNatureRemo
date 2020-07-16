@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 	"strings"
 
 	"github.com/slack-go/slack"
@@ -15,13 +14,9 @@ import (
 
 var msg = ""
 
-var (
-	apitoken     = os.Getenv("SLACKAPI_TOKEN")
-	slackChannel = "general"
-)
-
 func Dummy() {
 }
+
 func SendMessage(msg, apitoken, slackChannel string) error {
 	api := slack.New(apitoken)
 
@@ -31,6 +26,7 @@ func SendMessage(msg, apitoken, slackChannel string) error {
 }
 
 func ReciveMessage(apitoken, slackChannel string) string {
+	msg := ""
 	http.HandleFunc("/slack/events", func(w http.ResponseWriter, r *http.Request) {
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
@@ -83,7 +79,7 @@ func ReciveMessage(apitoken, slackChannel string) string {
 	return msg
 }
 
-func testsend() {
+func testsend(apitoken, slackChannel string) {
 	fmt.Println("test")
 	message := "Hello from golang"
 

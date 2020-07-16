@@ -7,17 +7,17 @@ import (
 	"os"
 )
 
-var msg = "test"
-
 var (
 	apitoken     = os.Getenv("SLACKAPI_TOKEN")
 	slackChannel = "general"
 )
 
 func main() {
-	nuture.Curltest()
-	err := linkslack.SendMessage(msg, apitoken, slackChannel)
+	//nuture.Curltest()
+	nuture.Dummy()
+	err := linkslack.SendMessage("test", apitoken, slackChannel)
 	if err != nil {
 		log.Fatal(err)
 	}
+
 }

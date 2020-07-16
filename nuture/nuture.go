@@ -12,6 +12,11 @@ var (
 	token = os.Getenv("NUTUREREMO_TOKEN")
 )
 
+//go fmt対策
+func Dummy() {
+	println("DUMMY")
+}
+
 func Curltest() {
 	url := "https://api.nature.global/1/devices"
 	req, _ := http.NewRequest("GET", url, nil)
