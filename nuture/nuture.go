@@ -13,7 +13,6 @@ var (
 )
 
 func Curltest() {
-	//curl -X GET "https://api.nature.global/1/devices" -H "accept: application/json" -k --header "Authorization: Bearer fliJqBgN3DlSZM24irHuybcV480xeRgG6X8UM3g4XHc.VFimfG5BtOgCSuctZNmQVXN5pvOCUiueXMdyXvCdRgM"
 	url := "https://api.nature.global/1/devices"
 	req, _ := http.NewRequest("GET", url, nil)
 

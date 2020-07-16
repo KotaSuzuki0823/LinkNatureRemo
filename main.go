@@ -2,6 +2,7 @@ package main
 
 import (
 	"./linkslack"
+	"./nuture"
 	"log"
 	"os"
 )
@@ -14,10 +15,9 @@ var (
 )
 
 func main() {
-	//nuture.Curltest()
+	nuture.Curltest()
 	err := linkslack.SendMessage(msg, apitoken, slackChannel)
 	if err != nil {
 		log.Fatal(err)
 	}
-
 }

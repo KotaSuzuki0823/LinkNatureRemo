@@ -20,6 +20,8 @@ var (
 	slackChannel = "general"
 )
 
+func Dummy() {
+}
 func SendMessage(msg, apitoken, slackChannel string) error {
 	api := slack.New(apitoken)
 
