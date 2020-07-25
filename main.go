@@ -13,9 +13,9 @@ var (
 )
 
 func main() {
-	//nuture.Curltest()
-	nuture.Dummy()
-	err := linkslack.SendMessage("test", apitoken, slackChannel)
+	result := nuture.Curltest()
+	//nuture.Dummy()
+	err := linkslack.SendMessage(string(result), apitoken, slackChannel)
 	if err != nil {
 		log.Fatal(err)
 	}

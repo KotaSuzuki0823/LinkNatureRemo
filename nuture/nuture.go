@@ -17,7 +17,7 @@ func Dummy() {
 	println("DUMMY")
 }
 
-func Curltest() {
+func Curltest() []byte {
 	url := "https://api.nature.global/1/devices"
 	req, _ := http.NewRequest("GET", url, nil)
 
@@ -32,8 +32,9 @@ func Curltest() {
 	}
 	dumpResp, _ := httputil.DumpResponse(resp, true)
 	fmt.Printf("%s", dumpResp)
+	return dumpResp
 }
-func GetAppliancesList() {
+func GetAppliancesList() []byte {
 	url := "https://api.nature.global/1/appliances"
 	req, _ := http.NewRequest("GET", url, nil)
 
@@ -48,8 +49,10 @@ func GetAppliancesList() {
 	}
 	dumpResp, _ := httputil.DumpResponse(resp, true)
 	fmt.Printf("%s", dumpResp)
+
+	return dumpResp
 }
-func GetRegistAppliancesSignal(id string) {
+func GetRegistAppliancesSignal(id string) []byte {
 	url := "https://api.nature.global/1/appliances/" + id + "signals"
 	req, _ := http.NewRequest("GET", url, nil)
 
@@ -65,6 +68,7 @@ func GetRegistAppliancesSignal(id string) {
 	}
 	dumpResp, _ := httputil.DumpResponse(resp, true)
 	fmt.Printf("%s", dumpResp)
+	return dumpResp
 }
 
 func SendSignal(id string) {
